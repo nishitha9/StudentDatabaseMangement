@@ -8,7 +8,7 @@
 </head>
 <body>
 <h3> Enter Student Details </h3>
-<form action="createStudent">
+<form action="createStudent" method="post">
 <table>
 <tr>
 <td>StudentId</td> <td> <input type="text" name="studentid"/></td>

@@ -8,6 +8,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
@@ -17,14 +21,15 @@ import com.google.appengine.api.datastore.Query;
 /**
  * Servlet implementation class StudentDatastore
  */
+@Controller
 public class StudentDatastore extends HttpServlet {
-	private static final long serialVersionUID = 1L;
- 
+	
 	Entity student1;
 	Entity studentForm;
+	@RequestMapping("/StudentDatstore")
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		student1=new Entity("StudentDatastore",2);
+		student1=new Entity("StudentDatastore",1);
 		student1.setProperty("StudentId","1" );
 		student1.setProperty("Name","Nishitha" );
 		student1.setProperty("StudyMark1","90" );
@@ -34,14 +39,12 @@ public class StudentDatastore extends HttpServlet {
 		student1.setProperty("SportsMark2","89" ); 
 		DatastoreService datastore=DatastoreServiceFactory.getDatastoreService();
 		datastore.put(student1);
-	
-
-		
-	
 	}
-
-
-
 	
+	@RequestMapping("/")
+	public String indexPage()
+	{
+		return "index.jsp";
+	}
 
 }

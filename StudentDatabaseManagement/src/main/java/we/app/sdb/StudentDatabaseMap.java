@@ -9,7 +9,7 @@ public class StudentDatabaseMap {
 
 	HashMap<Integer,Student> student_map=new HashMap<>();
 //	HashMap<String,List<Object>> student_map1=new HashMap<>();
-//	List<Object> list=new ArrayList<>(); //aa
+//	List<Object> list=new ArrayList<>();
 
 public void create()
 {

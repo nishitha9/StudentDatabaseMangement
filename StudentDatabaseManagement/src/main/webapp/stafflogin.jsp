@@ -18,7 +18,7 @@ padding-top:1px;
 <div id="heading">
 <h3 >STAFF LOGIN PAGE </h3>
 </div>
-<form action="staffinfo.jsp">
+<form action="staffinfo.jsp" method="post">
 <table>
 <tr> 
 <td>Staff Name </td>

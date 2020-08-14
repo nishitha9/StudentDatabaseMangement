@@ -9,9 +9,8 @@
 </head>
 <body>
 <%
-session.setAttribute("EntityKind","StudentDatastore");
+session.setAttribute("EntityKind", "StudentDatastore");
 String password=request.getParameter("password");
-
 if(password.equals("staff"))
 {
 	RequestDispatcher rd=request.getRequestDispatcher("staffdetails.jsp");

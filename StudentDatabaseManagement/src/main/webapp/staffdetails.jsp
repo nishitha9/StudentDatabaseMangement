@@ -38,26 +38,22 @@ text-align:right;
 <h3>STUDENT INFORMATION PORTAL</h3>
 </div>
 <div id="logout">
-<form action="logoutstaff.jsp">
+<form action="stafflogout.jsp">
 <input type="submit" value="logout"/>
 </form>
 </div>
-<form action="createStudent.jsp">
+<form action="createStudent.jsp" action="post">
 
 Create Student<input type="submit" value="create"/>
 </form>
-<%
 
-session.setAttribute("staffName", request.getParameter("staff_name"));
-
-%>
-<%= "<h3 > <i>Welcome "+  session.getAttribute("staffName")+ "</i></h3>" %>
+<%= "<h3 > <i>Welcome "+ request.getParameter("staff_name")+ "</i></h3>" %>
 <h3 style="text-align:center"> Student Details </h3>
 
 <% 
 DatastoreService datastore=DatastoreServiceFactory.getDatastoreService();
-StudentDatastore studentdatastore=new StudentDatastore();
-studentdatastore.doGet(request, response);
+//StudentDatastore studentdatastore=new StudentDatastore();
+//studentdatastore.doGet(request, response);
 //Entity student=studentdatastore.show();
 //out.print(student.getKind());
 %>
@@ -74,23 +70,16 @@ studentdatastore.doGet(request, response);
 </tr>
 
 <% 
-
 String entityKind=(String)session.getAttribute("EntityKind");
-Query query = new Query(entityKind);
 
-//out.println(entityKind);
-List<Entity> users =datastore.prepare(query).asList(FetchOptions.Builder.withLimit(10));
+Query query = new Query(entityKind);
+List<Entity> users = datastore.prepare(query).asList(FetchOptions.Builder.withLimit(10));
+
 
 	for(Entity student:users)
 	{
 		if(student.getProperty("StudentId")==null)
-		{
-			//out.println("Session exprired! Cannot retrieve data");
-			//break ;
-			RequestDispatcher rd=request.getRequestDispatcher("index.jsp");
-			rd.forward(request,response);
-		}
-		
+			response.sendRedirect("index.jsp");
 		
 			out.println("<tr>");	
 			out.println("<td>"+ student.getProperty("StudentId") +"</td>"  );

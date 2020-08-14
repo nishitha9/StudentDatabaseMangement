@@ -42,19 +42,17 @@ text-align:right;
 <h3>STUDENT INFORMATION PORTAL</h3>
 </div>
 <div id="logout">
-<form action="logoutstudent.jsp">
+<form action="studentlogout.jsp">
 <input type="submit" value="logout"/>
 </form>
 </div>
-<%= "<h3 > <i>Welcome "+  "</i></h3>" %>
+<%= "<h3 > <i>Welcome " + session.getAttribute("studentName") + "</i></h3>" %>
 <h3 style="text-align:center"> Student Details </h3>
 
 <% 
-String studentId=(String)session.getAttribute("student_id");
 DatastoreService datastore=DatastoreServiceFactory.getDatastoreService();
 StudentDatastore studentdatastore=new StudentDatastore();
 studentdatastore.doGet(request, response);
-//out.print(studentId);
 
 
 %>
@@ -72,7 +70,7 @@ studentdatastore.doGet(request, response);
 
 <% 
 
-Query query = new Query("StudentDatastore").addFilter("StudentId", FilterOperator.EQUAL, studentId);
+Query query = new Query("StudentDatastore").addFilter("StudentId", FilterOperator.EQUAL, session.getAttribute("student_id"));
 PreparedQuery pq=datastore.prepare(query);
 for(Entity student: pq.asIterable())
 {
@@ -81,6 +79,7 @@ for(Entity student: pq.asIterable())
 	out.println("<tr>");	
 	out.println("<td>"+ student.getProperty("StudentId") +"</td>"  );
 	out.println("<td>"+ student.getProperty("Name") +"</td>"  );
+	session.setAttribute("name", student.getProperty("Name"));
 	out.println("<td>"+ student.getProperty("StudyMark1") +"</td>" );
 	out.println("<td>"+ student.getProperty("StudyMark2")+"</td>" );
 	out.println("<td>"+ student.getProperty("StudyMark3") +"</td>" );
