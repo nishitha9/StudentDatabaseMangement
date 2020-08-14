@@ -49,6 +49,7 @@ text-align:right;
 <%= "<h3 > <i>Welcome " + session.getAttribute("studentName") + "</i></h3>" %>
 <h3 style="text-align:center"> Student Details </h3>
 
+
 <% 
 DatastoreService datastore=DatastoreServiceFactory.getDatastoreService();
 StudentDatastore studentdatastore=new StudentDatastore();
