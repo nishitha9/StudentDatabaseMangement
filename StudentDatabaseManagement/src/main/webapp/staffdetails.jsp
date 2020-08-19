@@ -43,20 +43,25 @@ text-align:right;
 </form>
 </div>
 
+<table>
+<tr>
 <form action="createStudent.jsp" method="post">
 
- Create Student  <input type="submit" value="create"/> 
+<td> Create Student </td> <td> <input type="submit" value="create"/> </td>
 </form>
 <form action="updateStudent.jsp" method="post">
 
-Update Student<input type="submit" value="update"/> 
+<td> Update Student </td> <td> <input type="submit" value="update"/> </td>
 </form>
 <form action="deleteStudent.jsp" method="post">
 
- Delete Student <input type="submit" value="delete"/> 
+<td> Delete Student </td> <td> <input type="submit" value="delete"/> </td>
+ </tr>
 </form>
+</table>
 
-<%= "<h3 > <i>Welcome "+ request.getParameter("staff_name")+ "</i></h3>" %>
+<%= "<h3 > <i>Welcome "+ session.getAttribute("staffName")+ "</i></h3>" %>
+
 <h3 style="text-align:center"> Student Details </h3>
 
 <% 
@@ -88,8 +93,8 @@ List<Entity> users = datastore.prepare(query).asList(FetchOptions.Builder.withLi
 
 	for(Entity student:users)
 	{
-		//if(student.getProperty("StudentId")==null)
-		//	response.sendRedirect("index.jsp");
+		if(student.getProperty("StudentId")==null)
+			response.sendRedirect("index.jsp");
 		
 			out.println("<tr>");	
 			out.println("<td>"+ student.getProperty("StudentId") +"</td>"  );

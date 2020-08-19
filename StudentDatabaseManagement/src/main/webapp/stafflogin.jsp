@@ -22,7 +22,7 @@ padding-top:1px;
 <table>
 <tr> 
 <td>Staff Name </td>
-<td><input type="text" name="staff_name"/></td>
+<td><input type="text" name="staffName"/></td>
 </tr>
 <tr>
 <td>Password</td>

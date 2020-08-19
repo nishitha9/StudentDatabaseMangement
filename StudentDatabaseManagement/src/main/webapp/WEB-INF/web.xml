@@ -41,4 +41,14 @@
     <servlet-name>UpdateStudent</servlet-name>
     <url-pattern>/UpdateStudent</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CheckStudent</display-name>
+    <servlet-name>CheckStudent</servlet-name>
+    <servlet-class>we.app.sdb.CheckStudent</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CheckStudent</servlet-name>
+    <url-pattern>/CheckStudent</url-pattern>
+  </servlet-mapping>
 </web-app>
