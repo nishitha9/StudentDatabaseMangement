@@ -42,9 +42,18 @@ text-align:right;
 <input type="submit" value="logout"/>
 </form>
 </div>
-<form action="createStudent.jsp" action="post">
 
-Create Student<input type="submit" value="create"/>
+<form action="createStudent.jsp" method="post">
+
+ Create Student  <input type="submit" value="create"/> 
+</form>
+<form action="updateStudent.jsp" method="post">
+
+Update Student<input type="submit" value="update"/> 
+</form>
+<form action="deleteStudent.jsp" method="post">
+
+ Delete Student <input type="submit" value="delete"/> 
 </form>
 
 <%= "<h3 > <i>Welcome "+ request.getParameter("staff_name")+ "</i></h3>" %>
@@ -52,11 +61,12 @@ Create Student<input type="submit" value="create"/>
 
 <% 
 DatastoreService datastore=DatastoreServiceFactory.getDatastoreService();
-//StudentDatastore studentdatastore=new StudentDatastore();
-//studentdatastore.doGet(request, response);
+StudentDatastore studentdatastore=new StudentDatastore();
+studentdatastore.doGet(request, response);
 //Entity student=studentdatastore.show();
 //out.print(student.getKind());
 %>
+
 <table style="border:1px solid black;margin-left:auto;margin-right:auto;text-align:center;">
 <tr >
 <td> Student_id </td>
@@ -78,8 +88,8 @@ List<Entity> users = datastore.prepare(query).asList(FetchOptions.Builder.withLi
 
 	for(Entity student:users)
 	{
-		if(student.getProperty("StudentId")==null)
-			response.sendRedirect("index.jsp");
+		//if(student.getProperty("StudentId")==null)
+		//	response.sendRedirect("index.jsp");
 		
 			out.println("<tr>");	
 			out.println("<td>"+ student.getProperty("StudentId") +"</td>"  );
