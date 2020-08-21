@@ -13,4 +13,30 @@
 	
 	<ctx:annotation-config></ctx:annotation-config>
 	<ctx:component-scan base-package="we.app.sdb"></ctx:component-scan>
+
+<bean class="we.app.sdb.ConfigClass"/>
+
+	
+ <!--   <bean
+        class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+        <property name="messageConverters">
+            <list>
+                <ref bean="jacksonObjectMapper"/>
+                   
+            </list>
+        </property>
+    </bean>
+
+    <bean id="jacksonObjectMapper" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" />    -->   
+    
+  <!--    <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+   <property name="objectMapper">
+     <bean class="org.springframework.http.converter.json.Jackson2ObjectMapperFactoryBean"/>
+        p:autoDetectFields="false"
+       p:autoDetectGettersSetters="false"
+       p:annotationIntrospector-ref="jaxbAnnotationIntrospector" /> 
+     
+   </property>
+ </bean>  -->
+
 </beans>
