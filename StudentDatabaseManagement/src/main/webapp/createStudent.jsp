@@ -11,31 +11,35 @@
 <form action="createStudent" method="post">
 <table>
 <tr>
-<td>StudentId</td> <td> <input type="text" name="studentid"/></td>
+<td>StudentId</td> <td> <input type="text" id="studentid"/></td>
 </tr>
 <tr>
-<td>Student Name</td> <td> <input type="text" name="name"/></td>
+<td>Student Name</td> <td> <input type="text" id="name"/></td>
 </tr>
 <tr>
-<td>Study Mark1</td> <td> <input type="text" name="studymark1"/></td>
+<td>Study Mark1</td> <td> <input type="text" id="studymark1"/></td>
 </tr>
 <tr>
-<td>Study Mark2</td> <td> <input type="text" name="studymark2"/></td>
+<td>Study Mark2</td> <td> <input type="text" id="studymark2"/></td>
 </tr>
 <tr>
-<td>Study Mark3</td> <td> <input type="text" name="studymark3"/></td>
+<td>Study Mark3</td> <td> <input type="text" id="studymark3"/></td>
 </tr>
 <tr>
-<td>Sports Mark1</td> <td> <input type="text" name="sportsmark1"/></td>
+<td>Sports Mark1</td> <td> <input type="text" id="sportsmark1"/></td>
 </tr>
 <tr>
-<td>Sports Mark2</td> <td> <input type="text" name="sportsmark2"/></td>
+<td>Sports Mark2</td> <td> <input type="text" id="sportsmark2"/></td>
 </tr>
 <tr>
-<td> <input type="submit" value="submit"/>
+<!-- <td> <input type="submit" value="submit"/>  -->
+<td> <button onclick="convertToJsonString()"> createStudent</button>  </td>
 </tr>
 </table>
 </form>
+<script src="createStudent.js">
 
+
+</script>
 </body>
 </html>

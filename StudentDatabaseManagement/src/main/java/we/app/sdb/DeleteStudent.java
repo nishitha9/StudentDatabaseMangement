@@ -25,7 +25,7 @@ public class DeleteStudent extends HttpServlet {
 	
 	@ResponseBody
 	@RequestMapping("/deleteStudent")
-	protected void doGet(@RequestParam("studentId") String studentId, HttpServletRequest request, HttpServletResponse response) throws IOException 
+	protected void doPost(@RequestParam("studentId") String studentId, HttpServletRequest request, HttpServletResponse response) throws IOException 
 		{
 		response.setContentType("text/html");
 		DatastoreService datastore=DatastoreServiceFactory.getDatastoreService();
@@ -35,7 +35,7 @@ public class DeleteStudent extends HttpServlet {
 		
 		
 		PrintWriter out=response.getWriter();
-		out.print("Student Deleted!!!");
+		out.print("Student Deleted!!!" + studentId);
 		out.println("<a href=\"staffdetails.jsp\"><button>View Entry</button></a>");
 	}
 	

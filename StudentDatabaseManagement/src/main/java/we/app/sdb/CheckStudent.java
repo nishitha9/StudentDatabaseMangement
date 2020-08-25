@@ -33,7 +33,7 @@ public class CheckStudent extends HttpServlet {
 
 	@RequestMapping("/checkStudent")
 	@ResponseBody
-	protected void doGet(@RequestParam("studentId") String studentId,HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(@RequestParam("studentId") String studentId,HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		boolean isPresent=false;
 		List<Object> studentIds=new ArrayList<>();
@@ -47,7 +47,8 @@ public class CheckStudent extends HttpServlet {
 				studentIds.add(student.getProperty("StudentId"));
 				
 			}
-			//response.getWriter().print(studentIds);
+			response.getWriter().print(studentIds);
+			response.getWriter().print(studentId);
 			if(studentIds.contains(studentId)){
 		
 				RequestDispatcher rd=request.getRequestDispatcher("update.jsp");
